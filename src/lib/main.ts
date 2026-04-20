@@ -1,9 +1,9 @@
 import { GoogleGenAI } from "@google/genai";
 import { systemInstruction } from "./supports/Prompt/main_prompt";
-import { output_schema } from "./supports/output_schema";
-import { FALLBACK_MODELS } from "./supports/engin_model";
-import { ProposalResponse } from "./supports/Prompt/personal_words";
-import { handleGenerationError } from "./supports/erros";
+import { output_schema } from "./supports/output/output_schema";
+import { FALLBACK_MODELS } from "./supports/engins/engin_model";
+import { ProposalResponse } from "./supports/Prompt/prompt_support/personal_words";
+import { handleGenerationError } from "./supports/erros/erros";
 
 export type { ProposalResponse };
 
