@@ -36,11 +36,14 @@ export const output_schema: Schema = {
     client_analysis: {
       type: Type.OBJECT,
       properties: {
-        behavior_and_hiring_signals: { type: Type.ARRAY, items: { type: Type.STRING } },
-        red_or_green_flags: { type: Type.ARRAY, items: { type: Type.STRING } },
-        overall_confidence_level: { type: Type.STRING }
+        budget_vs_scope: { type: Type.STRING },
+        account_history: { type: Type.STRING },
+        requirements_clarity: { type: Type.STRING },
+        engagement_level: { type: Type.STRING },
+        final_verdict: { type: Type.STRING },
+        verdict_justification: { type: Type.STRING }
       },
-      required: ["behavior_and_hiring_signals", "red_or_green_flags", "overall_confidence_level"]
+      required: ["budget_vs_scope", "account_history", "requirements_clarity", "engagement_level", "final_verdict", "verdict_justification"]
     },
     final_proposal: {
       type: Type.OBJECT,

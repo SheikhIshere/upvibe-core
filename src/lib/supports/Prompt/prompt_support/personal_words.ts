@@ -102,9 +102,12 @@ export type ProposalResponse = {
     timeline_risk_factors: string[];
   };
   client_analysis: {
-    behavior_and_hiring_signals: string[];
-    red_or_green_flags: string[];
-    overall_confidence_level: string;
+    budget_vs_scope: string;
+    account_history: string;
+    requirements_clarity: string;
+    engagement_level: string;
+    final_verdict: "Good Client" | "Bad Client";
+    verdict_justification: string;
   };
   final_proposal: {
     proposal_text: string;

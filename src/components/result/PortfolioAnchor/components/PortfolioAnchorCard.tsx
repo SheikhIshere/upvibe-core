@@ -1,11 +1,12 @@
-import { BentoItem } from "../BentoItem";
-import { ProposalResponse } from "../../lib/main";
+import React from "react";
+import { BentoItem } from "../../../BentoItem";
+import { ProposalResponse } from "../../../../lib/main";
 
 interface Props {
   data: ProposalResponse["best_portfolio_match"];
 }
 
-export const PortfolioAnchor = ({ data }: Props) => (
+export const PortfolioAnchorCard = ({ data }: Props) => (
   <BentoItem
     indexLabel="03"
     className="w-full h-full flex flex-col bg-surface p-5 border border-outline"

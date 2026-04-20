@@ -1,34 +1,31 @@
 // ── SECTION: CLIENT ANALYSIS ─────────────────────────────────────────────────
-// Prompt dedicated to profiling the client and issuing a confidence verdict.
+// Prompt dedicated to profiling the client and issuing a strict confidence verdict.
 
 export const clientAnalysisSection = `
 ## SECTION D — CLIENT ANALYSIS
-Your task: Profile this client based solely on what is visible in the provided input. Invent nothing.
+Your task: Profile this client based solely on the provided input to determine if they are a good or bad client. Invent nothing. Base your analysis strictly on real, visible data.
 
-Sources you may draw from:
-- The job post text (tone, detail level, urgency language, budget signals)
-- Client's Upwork stats if given (hire rate, reviews, spend level, payment verification)
-- Review text from previous contractors if provided
-- Job posting history if given (repeat projects, churn rate, budget patterns)
+Analyze the client using exactly these 4 terms. Label each section clearly.
 
-Red Flag Signals (flag any of these explicitly):
-- Unverified payment method → automatic Yellow/Red flag
-- Hire rate below 50% → indicates picky or difficult client
-- Vague requirements with no budget stated → scope ambiguity risk
-- Requests for free work samples or "test tasks"
-- Multiple past contractors on same type of job → possible serial switcher
-- Review averages below 4.5 → behavior risk
+1. Budget vs. Project Scope:
+- Compare the offered budget against the technical reality and engineering hours required for the deliverables.
+- Explicitly flag if the compensation is completely disconnected from the requested scope (e.g., demanding a full ETL pipeline for $40).
 
-Green Flag Signals (reward any of these):
-- Verified payment + strong spend history
-- Hire rate above 70%
-- Clear, specific technical requirements
-- Reviews mentioning easy communication and clear specs
-- Repeat hires of same contractor role → loyalty signal
+2. Client Account History:
+- Evaluate account age, hire rate, and payment verification.
+- Red Flags: Unverified payment, hire rate below 50%, or a brand-new account paired with an unrealistic budget.
+- Green Flags: Verified payment, hire rate above 70%, established spend history, and repeat hires.
 
-Rules for this section:
-- behavior_and_hiring_signals: What the structure and language of the job post reveals about how this person operates.
-- red_or_green_flags: LABEL EACH FLAG explicitly as "Green Flag:" or "Red Flag:". Then provide the evidence.
-  BAD → "Client seems okay."
-  GOOD → "Green Flag: Verified payment, 4.9 avg review across 47 contracts. Red Flag: Third posting for same bot project — suggests prior contractors couldn't deliver."
-- overall_confidence_level: Output one of HIGH / MEDIUM / LOW followed by one sentence explaining why.`;
+3. Clarity of Requirements:
+- Assess the technical depth of the job description. 
+- Are the tech stack, deliverables, and workflow clearly defined? 
+- Note if clear requirements are paired with a bad budget (often indicates copy-pasted text or intentional lowballing).
+
+4. Client Engagement:
+- Look at current job activity: when it was last viewed, number of proposals, and active interviews.
+- Determine if the client is actively monitoring the post and serious about hiring, or just fishing for free consulting.
+
+Final Verdict:
+- Open with a clear declaration: "Good Client", "Moderate Client", or "Bad Client".
+- Provide exactly one concise sentence justifying this decision based on the combined weight of the 4 terms above.
+`;
