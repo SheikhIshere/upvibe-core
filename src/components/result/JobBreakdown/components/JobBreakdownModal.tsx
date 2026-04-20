@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import React from "react";
 import { ProposalResponse } from "../../../../lib/main";
+import { TTSButton } from "../../TheArtifact/components/tts/TTSButton";
 
 interface Props {
   data: ProposalResponse["job_breakdown"];
@@ -9,6 +10,12 @@ interface Props {
 }
 
 export const JobBreakdownModal = ({ data, isExpanded, onClose }: Props) => {
+  const textToRead = `
+    Job Requirements: ${data.precise_requirements.join(". ")}.
+    Hidden Priorities: ${data.hidden_priorities.join(". ")}.
+    Technology Stack: ${data.implied_tech_stack.join(", ")}.
+  `;
+
   return (
     <AnimatePresence>
       {isExpanded && (
@@ -28,9 +35,12 @@ export const JobBreakdownModal = ({ data, isExpanded, onClose }: Props) => {
           >
             <div className="flex items-center justify-between p-6 border-b border-white/5 bg-white/5">
               <span className="text-xs font-label uppercase tracking-[0.2em] text-primary">Requirement Analysis Depth</span>
-              <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
-                <span className="material-symbols-outlined text-sm">close</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <TTSButton text={textToRead} />
+                <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-white/10 transition-colors">
+                  <span className="material-symbols-outlined text-sm">close</span>
+                </button>
+              </div>
             </div>
             <div className="p-8 overflow-y-auto custom-scrollbar space-y-8 max-h-[70vh]">
               <section>

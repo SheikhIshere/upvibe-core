@@ -17,7 +17,7 @@ export const TheArtifact = ({ data, onCopy }: Props) => (
     <div className="flex flex-col h-full">
       <ArtifactHeader />
       <ArtifactContent text={data.proposal_text} />
-      <ArtifactControls characterCount={data.character_count} onCopy={onCopy} />
+      <ArtifactControls characterCount={data.character_count} textToRead={data.proposal_text} onCopy={onCopy} />
     </div>
   </BentoItem>
 );
