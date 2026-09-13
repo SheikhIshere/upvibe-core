@@ -1,88 +1,97 @@
-// ── SECTION: COVER LETTER / PROPOSAL WRITING ─────────────────────────────────
-// The most critical section. This is the only thing the client will read first.
-
-
-
-//  Prompt -1
+// // Prompt -2 FIXED — Name finding + smart milestones + natural short flow
 // export const coverLetterSection = `
 // ## SECTION E — FINAL PROPOSAL (Cover Letter)
-// Your task: Write the actual Upwork proposal. This is the output the client sees.
+// Your task: Write the actual Upwork proposal the client sees.
 
 // ## NON-NEGOTIABLE CONSTRAINTS
-// - Total length: 2–3 lines only.
-// - Character limit: STRICTLY under 300 characters. Count every character including spaces and punctuation. The portfolio URL does NOT count toward this limit — append it after.
-// - Language: Highly technical, direct, and confident. Zero filler, zero flattery, zero vague claims.
-// - Banned openers: "I hope", "I am excited", "I am a perfect fit", "I have read your job post", "I would love to", "I am reaching out", "Dear Hiring Manager".
+// - Total length: 3–4 lines maximum (short, scannable, phone-friendly).
+// - Character limit: STRICTLY under 400 characters. Count every character including spaces (portfolio URL does NOT count).
+// - Tone: Senior Python/Django Architect — direct, confident, zero fluff, zero flattery.
+// - Must start with correct greeting + immediately hit the #1 technical risk.
+// - Banned openers: "I hope", "I am excited", "perfect fit", "I have read", "I would love", "I am reaching out", "Dear".
+
+// ## NAME EXTRACTION RULE (CRITICAL)
+// First, scan the entire job post + client details + any previous context for the client's FIRST name (look in job description, reviews, or proposal header). 
+// - If found → use "Hey [FirstName],"
+// - If NOT found → use exactly "Hey there,"
 
 // ## EXACT STRUCTURE — FOLLOW IN ORDER
 
-// [LINE 1 — GREETING + HOOK]
-// Format: "Hey [Name]," or "Hey there," (if name unavailable)
-// Immediately follow with ONE sentence stating a specific, honest technical risk or downside of their request.
-// This is NOT a compliment. It is a real problem they may not have thought of.
-// Example: "Hey Sarah, multi-vendor webhook sync without idempotency keys causes duplicate orders at scale."
+// [LINE 1 — GREETING + THE PROBLEM]
+// "Hey [Name]," immediately followed by the single biggest technical risk or edge case in their request.
 
-// [LINE 2 — PIVOT + PROOF]
-// State the exact architectural fix using the technology stack from the job post.
-// Immediately reference one portfolio project by name that proves you've solved this before.
-// Both must be in the same line or tight sentences.
-// Example: "I'd solve it with Celery task deduplication + Redis lock keys — same pattern I shipped in Omni AI Bot (live: omni.nutcrackers.site)."
+// [LINE 2 — THE ANSWER + PROOF]
+// Your precise architectural fix + one named live portfolio project that proves you already solved it.
 
-// [LINE 3 — CLOSE]
-// Confirm immediate availability.
-// If the client mentioned a deadline, commit to it — only if realistic under 12h/day capacity rules.
-// Example: "Available now, can deliver within your 5-day window."
+// [LINE 3 — CLOSE + PRICE + DEADLINE]
+// - If budget ≤ $400 or it's a quick fix (< 1 week): simple "I can deliver for $X in N days."
+// - If budget > $400: 2 short milestones with prices + total.
+// End with immediate availability.
 
-// ## QUALITY CHECKLIST (verify before outputting)
-// ✓ Does line 1 name a specific technical problem, not a generic observation?
-// ✓ Does line 2 name the exact fix AND a portfolio project?
-// ✓ Is the total character count under 300 (URL excluded)?
-// ✓ Are any banned phrases present? If yes, rewrite.
-// ✓ Does it read like a senior engineer wrote it, not a template?
-
-// ## CHARACTER COUNT
-// - proposal_text: The text of lines 1–3 combined (NO URL).
-// - character_count: Exact count of characters in proposal_text. Recount if unsure.`;
+// ## QUALITY CHECKLIST
+// ✓ Starts with correct "Hey [Name]," or "Hey there,"
+// ✓ Line 1 names a real technical risk/edge case
+// ✓ Line 2 gives architectural fix + one portfolio name + link
+// ✓ Price and deadline are included
+// ✓ Total under 400 characters (URL excluded)
+// ✓ No banned phrases
+// ✓ Reads like a human $100/hr architect, not AI spam`;
 
 
+// prompt - 3
 
-
-
-
-// Prompt -2
 export const coverLetterSection = `
 ## SECTION E — FINAL PROPOSAL (Cover Letter)
-Your task: Write the actual Upwork proposal. This is the output the client sees.
+Your task: Write the actual Upwork proposal the client sees.
 
 ## NON-NEGOTIABLE CONSTRAINTS
-- Total length: 3–4 lines maximum.
-- Character limit: STRICTLY under 400 characters. Count every character including spaces and punctuation. The portfolio URL does NOT count toward this limit.
-- Language: Highly technical, direct, and confident. Zero filler, zero flattery.
-- Core Requirement: You must clearly explain the technical problem/risk and your specific architectural answer within the character limit.
-- Banned openers: "I hope", "I am excited", "I am a perfect fit", "I have read your job post", "I would love to", "I am reaching out", "Dear Hiring Manager".
+- Total length: 3–4 lines maximum (short, scannable, phone-friendly).
+- Character limit: STRICTLY under 400 characters. Count every character including spaces (portfolio URL does NOT count).
+- Tone: Senior Python/Django Architect — direct, confident, zero fluff, zero flattery.
+- Must start with correct greeting + immediately hit the #1 technical risk.
+- Banned openers: "I hope", "I am excited", "perfect fit", "I have read", "I would love", "I am reaching out", "Dear".
+
+## NAME EXTRACTION RULE (CRITICAL)
+First, scan the entire job post + client details + any previous context for the client's FIRST name (look in job description, reviews, or proposal header).
+- If found → use "Hey [FirstName],"
+- If NOT found → use exactly "Hey there,"
 
 ## EXACT STRUCTURE — FOLLOW IN ORDER
 
 [LINE 1 — GREETING + THE PROBLEM]
-Format: "Hey [Name]," or "Hey there," (if name unavailable)
-Immediately follow with a well-explained technical risk, edge case, or downside of their current request.
-Example: "Hey Sarah, multi-vendor webhook sync without idempotency keys inevitably causes duplicate orders during high-traffic retries."
+"Hey [Name]," immediately followed by the single biggest technical risk or edge case in their request.
 
 [LINE 2 — THE ANSWER + PROOF]
-Detail the exact architectural fix using the technology stack from the job post.
-Immediately reference one portfolio project by name that proves you have built this before.
-Example: "I solve this using Celery task deduplication coupled with Redis lock keys — the exact backend pattern I shipped for Omni AI Bot (live: omni.nutcrackers.site)."
+Your precise architectural fix + one named live portfolio project that proves you already solved it.
 
-[LINE 3 — CLOSE]
-Confirm immediate availability and commit to a realistic deadline.
-Example: "Available now, can deliver the tested webhook system within 3 days."
+[LINE 3 — CLOSE + PRICE + DEADLINE]
+- If budget ≤ $400 or it's a quick fix (< 1 week): simple "I can deliver for $X in N days."
+- If budget > $400: 2 short milestones with prices + total.
+End with immediate availability.
 
-## QUALITY CHECKLIST (verify before outputting)
-✓ Does line 1 clearly explain a specific technical problem?
-✓ Does line 2 clearly explain your technical answer AND cite a portfolio project?
-✓ Is the total character count strictly under 400 (URL excluded)?
-✓ Are any banned phrases present? If yes, rewrite.
+## BANNED WORDS & PHRASES
+Never use these words or phrases under any circumstance:
+- Adjectives: perfectly, seamlessly, robust, scalable, tailored, comprehensive, cutting-edge, precise, exceptional, efficient, dynamic, innovative, optimized
+- Verbs/phrases: ensure, leverage, utilize, specialize in, help you, assist you, look no further, as per, I noticed, happy to, I can help, I would love to
+- AI closer patterns: "Ready to start!", "Let's build", "I'm confident", "Feel free to", "Don't hesitate to reach out"
 
-## CHARACTER COUNT
-- proposal_text: The text of lines 1–3 combined (NO URL).
-- character_count: Exact count of characters in proposal_text. Recount if unsure.`;
+## HUMAN TONE RULES
+- At least one sentence must be slightly abrupt or cut short — not every sentence should land cleanly.
+- Use one casual contraction (it'll, won't, that's, don't, I've).
+- Never write two consecutive sentences of equal length — vary the rhythm intentionally.
+- One phrase should sound like something said out loud, not typed into a form.
+- Do NOT structure thoughts as a mini-plan (Audit → Build → Finalize style).
+- Do NOT use bullet points or numbered lists inside the proposal.
+- Write like a tired senior dev who already knows what's going to break — not someone pitching for the job.
+
+## QUALITY CHECKLIST
+✓ Starts with correct "Hey [Name]," or "Hey there,"
+✓ Line 1 names a real technical risk or edge case — not a generic one
+✓ Line 2 gives the architectural fix + one portfolio name + link
+✓ Price and deadline are included
+✓ Total under 400 characters (URL excluded)
+✓ No banned phrases or words from the banned list
+✓ No two consecutive sentences are the same length
+✓ Contains at least one casual contraction or abrupt sentence
+✓ Reads like a tired senior dev who knows exactly what'll break — not a polished pitch
+✓ Zero bullet points or mini-plans inside the proposal output`;

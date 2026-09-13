@@ -1,10 +1,10 @@
 import React from "react";
 import { JobBreakdown } from "../../JobBreakdown";
 import { ClientAnalyzer } from "../../ClientAnalyzer";
-import { PortfolioAnchor } from "../../PortfolioAnchor";
-import { TimelineRisk } from "../../TimelineRisk";
-import { TerminalInput } from "../../TerminalInput";
-import { TheArtifact } from "../../TheArtifact";
+import { PortfolioAnchor } from "../../Matching_Project";
+import { TimelineRisk } from "../../Max_DeadLine";
+import { TerminalInput } from "../../Raw_Data";
+import { TheArtifact } from "../../CoverLetter";
 import { ProposalResponse } from "../../../../lib/main";
 
 interface Props {

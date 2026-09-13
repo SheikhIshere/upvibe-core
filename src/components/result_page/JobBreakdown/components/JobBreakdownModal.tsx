@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import React from "react";
 import { ProposalResponse } from "../../../../lib/main";
-import { TTSButton } from "../../TheArtifact/components/tts/TTSButton";
+import { TTSButton } from "../../CoverLetter/components/tts/TTSButton";
 
 interface Props {
   data: ProposalResponse["job_breakdown"];

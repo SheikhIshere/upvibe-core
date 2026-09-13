@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring } from "motion/react";
 import React, { useRef, useCallback, useEffect } from "react";
-import { InputButton } from "./InputButton";
+import { InputButton } from "./input_button";
 
 interface CylinderInputProps {
   value: string;

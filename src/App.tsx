@@ -1,8 +1,8 @@
 import { AnimatePresence, motion } from "motion/react";
 import React, { useState } from "react";
 import { generateProposal, ProposalResponse } from "./lib/main";
-import { CylinderInput } from "./components/CylinderInput";
-import { BentoDashboard } from "./components/result/BentoDashboard";
+import { CylinderInput } from "./components/Landing_page/input_box";
+import { BentoDashboard } from "./components/result_page/Dashboard";
 
 type UIState = "void" | "shift" | "engine" | "artifact";
 
@@ -98,10 +98,10 @@ export default function App() {
                   className="flex flex-col items-center"
                 >
                   <h1 className="font-headline text-[2.5rem] md:text-[3rem] font-bold tracking-tight text-on-surface leading-tight text-center mb-2">
-                    Proposal Generator
+                    Job Analyzer
                   </h1>
                   <p className="font-body text-base text-on-surface-variant max-w-lg text-center leading-relaxed">
-                    Elevate your winning potential with AI-driven strategy.
+                    Profiles the client, breaks down the job, and writes a <br /> <b>high-conviction</b> Upwork proposal.
                   </p>
                 </motion.div>
               )}
